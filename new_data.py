@@ -3,8 +3,6 @@ import pandas as pd
 import numpy as np
 from scipy import stats
 from pandas_datareader.data import Options
-from scipy.optimize import brentq
-from math import log, sqrt, exp
 from pandas_datareader.data import Options
 import pandas_datareader.data as web
 from pandas_datareader._utils import RemoteDataError
@@ -13,7 +11,7 @@ import time
 
 
 def main():
-    ticker_list=pd.read_csv('116/NasdaqStockList.csv')
+    ticker_list=pd.read_csv('NasdaqStockList.csv')
 
     available_list=[]
     attention_list=[]
@@ -37,6 +35,7 @@ def main():
             print ticker+'!!!!!!!!!!'
             attention_list.append(ticker)
             continue
+    aggregate_df.to_csv('aggregate.csv')
 
 
 def expiration (df):
